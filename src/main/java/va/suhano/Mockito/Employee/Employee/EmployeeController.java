@@ -1,4 +1,4 @@
-package va.suhano.Mockito;
+package va.suhano.Mockito.Employee.Employee;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,18 +17,24 @@ public class EmployeeController {
     }
 
     @GetMapping("/add")
-    public Employee add(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName) {
-        return service.add(firstName, lastName);
+    public Employee add(@RequestParam("firstName") String firstName,
+                        @RequestParam("lastName") String lastName,
+                        @RequestParam("departmentId") int department,
+                        @RequestParam("salary") double salary
+    ) {
+        return service.add(firstName, lastName, department, salary);
     }
 
     @GetMapping("/remove")
-    public Employee remove(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName) {
+    public Employee remove(@RequestParam("firstName") String firstName,
+                           @RequestParam("lastName") String lastName) {
         return service.remove(firstName, lastName);
     }
 
     @GetMapping("/find")
-    public Employee find(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName) {
-        return service.find (firstName, lastName);
+    public Employee find(@RequestParam("firstName") String firstName,
+                         @RequestParam("lastName") String lastName) {
+        return service.find(firstName, lastName);
     }
 
     @GetMapping("/showAll")
